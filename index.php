@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoeman's todo List</title>
+    <link rel ="stylesheet" type="text/css" href="styletodo.css"> 
+    <h1 style ="color:blue">WELCOME TO THE TODO LIST<h1>
 </head>
-<body style="background-color:yellow">
+<body>
+   <div class="list container">
     <form action="addtask.php" method="post">
-Task Name:<br>
+<b>Task Name:<b><br>
 <input type="text" name="taskname" placeholder="Enter task name"><br>
 <p>Indicate Starting time:<br><input type="time" name="starttime"></p>
 <p> <input type="submit">
 
     </form>
+</div>
 
     <ul>
         
@@ -29,19 +33,22 @@ Task Name:<br>
    $result= $con->query($sql);
 
    if ($result -> num_rows >0){
-   echo "<ul>";
+      echo '<div class=Task-container">';
+      echo '<h1>Your Tasks</h1>';
+      echo '<ul>';
    while($row=$result->fetch_assoc()){
-    echo "<li> {$row['Task_id']}-{$row["Task_name"]}- {$row['Starting_time']}</li>" ;
+    echo  "<li> {$row['Task_id']}-{$row["Task_name"]}- {$row['Starting_time']}</li>" ;
    }
    echo "</ul>";
+   echo "</div>";
    } else{
     echo "No tasks found.";
    }
 
    $con->close();
    ?>
-
-<h2>YOUR TASKS MAY BE REMOVED HERE</h2>
+<div class="actions">
+<p><h2>YOUR TASKS MAY BE REMOVED HERE</h2></p>
    <form action="deletetask.php" method="post">
 <p>Enter the Task ID of the task you wish to remove:</p>
 <input type="number" name="deleteID" placeholder="Enter Task ID">
@@ -61,6 +68,7 @@ Task Name:<br>
 <input type="number" placeholder="Enter 0,1 or 2 as new status" name="newstatus">
 <input type="submit" >
    </form>
+</div>
     
 </body>
 </html>

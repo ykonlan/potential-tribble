@@ -1,1 +1,5 @@
 print("Hello, VS Code!")
+print("    /|")
+print("   / |")
+print("  /  |")
+print(" /___|")

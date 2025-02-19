@@ -12,3 +12,4 @@ print(f"a reference to the Monty {nameting} script of that name). There is also 
 print(f"a number of sources of {nameting}-related information. Failing that, just Google for a phrase")
 print(f"including the word {nameting} and you may well get the result you need. If all else fails,")
 print(f"ask on the {nameting} newsgroup and there's a good chance someone will put you on the right track.")
+print(f"{nameting} is my name")
